@@ -1,0 +1,67 @@
+    /*
+       mutex 用 pthread_mutex_t 数据类型表示，在使用互斥锁前,必须先对它进行初始化。
+       静态分配的互斥锁：
+             pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+       动态分配互斥锁: :
+             pthread_mutex_t mutex;
+       初始化函数：
+       pthread_mutex_init(&mutex, NULL);
+
+       在所有使用过此互斥锁的线程都不再需要使用时候，应调用销毁互斥锁
+       pthread_mutex_destroy 销毁互斥锁。
+
+       头文件：#include <pthread.h>
+       函数：
+            int pthread_mutex_init(pthread_mutex_t *mutex,const pthread_mutexattr_t *attr)；
+       功能：
+            初始化一个互斥锁。
+       参数：
+           mutex：互斥锁地址。
+           attr：互斥锁的属性，NULL 为默认的属性。
+       返回值：
+           成功返回 0，失败返回非 0。
+
+
+      头文件：#include <pthread.h>
+      函数：
+           int pthread_mutex_lock(pthread_mutex_t *mutex);
+      功能：
+            对互斥锁上锁，若已经上锁，则调用者一直阻塞到互斥锁解锁。
+      参数： 
+            mutex：互斥锁地址。
+     返回值：
+            成功返回 0，失败返回非 0。
+    
+
+      头文件： #include <pthread.h>
+      函数：
+            int pthread_mutex_trylock(pthread_mutex_t *mutex)(非阻塞函数)
+      功能：
+           对互斥锁上锁，若已经上锁，则上锁失败，函数立即返回。
+      参数：
+            mutex：互斥锁地址。
+      返回值：
+            成功返回 0，失败返回非 0
+
+
+
+     头文件：#include <pthread.h>
+     函数：
+          int pthread_mutex_unlock(pthread_mutex_t * mutex);
+     功能：
+          对指定的互斥锁解锁。
+     参数：
+           mutex：互斥锁地址。
+     返回值：
+           成功返回 0,失败返回非 0
+    
+    头文件：#include <pthread.h>
+    函数：
+           int pthread_mutex_destroy(pthread_mutex_t *mutex);
+    功能：
+           销毁指定的一个互斥锁。
+    参数：
+           mutex：互斥锁地址。
+    返回值：
+           成功返回 0，失败返回非 0
+    */
